@@ -46,7 +46,7 @@
             <Button Content="New Cycle" Click="NewCycle"/>
             <Button Content="New Rubro" Click="NewRubro"/>
             <Button Content="Cycles's List" Click="ViewRecord"/>
-            <Button Content="Rubros's Report"/>
+            <Button Content="Rubros's Report" Click="ViewReport"/>
             <Button Content="Settings" Click="ShowSettings"/>
         </StackPanel>
 
@@ -57,7 +57,7 @@
             </Grid.RowDefinitions>
             
             <TextBlock Grid.Row="0" Text="Current Cycle" FontSize="44" TextAlignment="Center" VerticalAlignment="Center"/>
-            <ListBox Grid.Row="1" Name="listBox1" HorizontalAlignment="Left" Height="649" VerticalAlignment="Top" Width="460" BorderThickness="2" BorderBrush="White">
+            <ListBox Grid.Row="1" Name="listBox1" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="460" BorderThickness="2" BorderBrush="White">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>                            

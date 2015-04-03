@@ -113,6 +113,11 @@ namespace Project1
             NavigationService.Navigate(new Uri("/Record.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void ViewReport(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ReportRubro.xaml", UriKind.RelativeOrAbsolute));
+        }
+
         private void ShowSettings(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Settings.xaml", UriKind.RelativeOrAbsolute));

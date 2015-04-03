@@ -16,3 +16,5 @@ C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\Project1.g.resources
 C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\Project1.dll
 C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\Project1.pdb
 C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\XapCacheFile.xml
+C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\SafeMyMoney.csprojResolveAssemblyReference.cache
+C:\Users\carlos\Desktop\Project1\Project1\obj\Debug\ReportRubro.g.cs

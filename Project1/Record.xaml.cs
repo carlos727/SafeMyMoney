@@ -41,7 +41,7 @@ namespace Project1
                 {
                     IQueryable<Rubro> list = from rubro in context.Rubro where rubro.cycle == c.ID select rubro;
                     List<Rubro> RubroItems = list.ToList();
-                    String message = "Rubros of cycle " + c.ID + ":";
+                    String message = "Rubros of cycle " + c.ID + ":\n";
                     int i = 0;
                     while (i < RubroItems.Count)
                     {
@@ -90,11 +90,11 @@ namespace Project1
                         expected_egress = (from rubro in context.Rubro where rubro.cycle == c.ID && rubro.type == "Egress" select rubro.expected).Sum();
                     }
                     
-                    String message = "Balance of cycle " + c.ID 
-                        + ":\nGeneral: " + real_ingress + " - " + real_egress + " = " + (real_ingress - real_egress)
+                    String message = "\tBalance of cycle " + c.ID + "\n"
+                        + "\nGeneral: " + real_ingress + " - " + real_egress + " = " + (real_ingress - real_egress)
                         + "\nIngress: " + expected_ingress + " - " + real_ingress + " = " + (expected_ingress - real_ingress)
                         + "\nEgress: " + expected_egress + " - " + real_egress + " = " + (expected_egress - real_egress)
-                        ;
+                        + "\n";
 
                     IQueryable<Rubro> list = from rubro in context.Rubro where rubro.cycle == c.ID select rubro;
                     List<Rubro> RubroItems = list.ToList();
