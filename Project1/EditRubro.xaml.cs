@@ -49,7 +49,16 @@ namespace Project1
 
         private void Edit_Rubro(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
+            if(quantity.Text.Length != 0)
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
+            else
+            {
+                using (Data context = new Data(App.DataconnectionString))
+                {
+                    String username = (from user in context.User select user.name).FirstOrDefault();
+                    MessageBox.Show(username + ", The quantity value is empty, please provide them.");
+                }
+            }
         }
     }
 }

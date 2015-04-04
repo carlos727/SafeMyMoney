@@ -49,7 +49,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="Rubros" FontSize="44" TextAlignment="Center" VerticalAlignment="Center"/>
-            <ListBox Grid.Row="1" Name="listBox1" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="460" BorderBrush="White" BorderThickness="2">
+            <ListBox Grid.Row="1" Name="listBox1" BorderBrush="White" BorderThickness="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -64,6 +64,9 @@
             </ListBox>
         </Grid>
 
-        <Button Grid.Row="2" Content="Report" BorderThickness="2" Click="ViewReport"/>
+        <Grid Grid.Row="2" Background="#FF2A32E0" Margin="0 10 0 0">
+            <Button Content="Report" BorderThickness="2" Click="ViewReport"/>
+        </Grid>
+        
     </Grid>
 </phone:PhoneApplicationPage>

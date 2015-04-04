@@ -103,6 +103,7 @@ namespace Project1
                     {
                         Rubro rubro = RubroItems.ElementAt(i);
                         float percentage = (float.Parse(rubro.current.ToString()) / float.Parse(rubro.expected.ToString())) * 100;
+                        
                         if (percentage > 100 + c.percentage) 
                             message += "\n" + rubro.name + " exceeded by " + (rubro.current - rubro.expected) + " (" + (Int32)percentage + "%)";
                         

@@ -23,11 +23,8 @@ namespace Project1
             using (Data context = new Data(App.DataconnectionString))
             {
                 if (!context.DatabaseExists())
-                {
                     context.CreateDatabase();
-                
-                }
-
+               
                 var user_exist = (from user in context.User select user).FirstOrDefault();
                 if(user_exist == null)
                 {
@@ -70,13 +67,9 @@ namespace Project1
         private void Menu(object sender, RoutedEventArgs e)
         {
             if (menu.Visibility == Visibility.Collapsed)
-            {
                 menu.Visibility = Visibility.Visible;
-            }
             else
-            {
                 menu.Visibility = Visibility.Collapsed;
-            }
         }
 
         private void EditRubro(object sender, EventArgs e) 

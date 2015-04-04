@@ -48,7 +48,16 @@ namespace Project1
 
         private void Edit_Expected(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/NewCycle.xaml", UriKind.RelativeOrAbsolute));
+            if (expected.Text.Length != 0)
+                NavigationService.Navigate(new Uri("/NewCycle.xaml", UriKind.RelativeOrAbsolute));
+            else
+            {
+                using (Data context = new Data(App.DataconnectionString))
+                {
+                    String username = (from user in context.User select user.name).FirstOrDefault();
+                    MessageBox.Show(username + ", The Field expected value is empty, please provide them.");
+                }
+            }
         }
     }
 }

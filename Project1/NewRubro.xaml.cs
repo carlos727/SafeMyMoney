@@ -29,16 +29,16 @@ namespace Project1
                     Rubro rubro = new Rubro();
                     rubro.name = name.Text;
                     if (option1.IsChecked == true)
-                    {
                         rubro.type = option1.Content.ToString();
-                    }
                     else
-                    {
                         rubro.type = option2.Content.ToString();
-                    }
+                                       
+                    if (current.Text.Length != 0)
+                        rubro.current = Int32.Parse(current.Text);
+                    else
+                        rubro.current = 0;
 
                     rubro.expected = Int32.Parse(expected.Text);
-                    rubro.current = Int32.Parse(current.Text);
                     rubro.cycle = current_cycle;
                     context.Rubro.InsertOnSubmit(rubro);
                     context.SubmitChanges();
@@ -51,7 +51,7 @@ namespace Project1
                 using (Data context = new Data(App.DataconnectionString))
                 {
                     String username = (from user in context.User select user.name).FirstOrDefault();
-                    MessageBox.Show(username + ", The Field name or expected value empty, please provide them.");
+                    MessageBox.Show(username + ", The Field name or expected value is empty, please provide them.");
                 }
             }
         }

@@ -24,6 +24,7 @@ namespace Project1
                 String username = (from user in context.User select user.name).FirstOrDefault();
                 int current_cycle = (from cycle in context.Cycle select cycle.ID).Max();
                 var CycleLoaded = (from cycle in context.Cycle where cycle.ID == current_cycle select cycle).FirstOrDefault();
+                
                 if (CycleLoaded != null)
                 {
                     tolerance.Text = CycleLoaded.percentage.ToString();
@@ -38,10 +39,10 @@ namespace Project1
             {
                 int current_cycle = (from cycle in context.Cycle select cycle.ID).Max();
                 var CycleLoaded = (from cycle in context.Cycle where cycle.ID == current_cycle select cycle).FirstOrDefault();
+                
                 if (CycleLoaded != null)
-                {
                     CycleLoaded.percentage = Int32.Parse(tolerance.Text);
-                }
+                
                 var UserLoaded = (from user in context.User select user).FirstOrDefault();
                 UserLoaded.name = name.Text;
                 context.SubmitChanges();
@@ -50,7 +51,16 @@ namespace Project1
 
         private void SaveSettings(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
+            if(name.Text.Length != 0 && tolerance.Text.Length != 0)
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
+            else
+            {
+                using (Data context = new Data(App.DataconnectionString))
+                {
+                    String username = (from user in context.User select user.name).FirstOrDefault();
+                    MessageBox.Show(username + ", The Field display name or tolerance is empty, please provide them.");
+                }
+            }
         }
     }
 }
